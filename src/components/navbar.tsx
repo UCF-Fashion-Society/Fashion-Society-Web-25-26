@@ -37,7 +37,7 @@ export default function Navbar() {
 
                  <NavLink to = "/events" className = {({ isActive }) => ` 
                                                     ${isActive 
-                                                    ? "text-underline" 
+                                                    ? "underline" 
                                                     : "hover:underline"}`}>
                             EVENTS
                 </NavLink>
