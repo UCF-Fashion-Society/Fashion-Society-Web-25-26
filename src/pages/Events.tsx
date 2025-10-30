@@ -1,49 +1,41 @@
+import NextMeeting from '../utils/meetingDates'
 
 const Meetings = [
     {
         name: "Design Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Design",
     },
     {
         name: "Production Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Production",
     },
     {
         name: "Web Design Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Web",
     },
     {
         name: "Photography Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Photography",
     },
     {
         name: "Zine Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Zine",
     },
     {
         name: "Social Media Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Social",
     },
     {
         name: "Beauty Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Beauty",
     },
     {
         name: "Modeling Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Modeling",
     },
     {
         name: "Styling Meeting",
-        date: "October 15th",
-        time: "6:00pm"
+        committee: "Styling",
     }
 ]
 
@@ -51,33 +43,22 @@ const Events = () => {
     return (
         <div>
             <div className="grid grid-cols-2 items-center space-x-20">
-                <img src="/public/UpcomingEvents.svg" alt="Upcoming Events" className="ml-12" width={900} height={300} />
+                <img src="/UpcomingEvents.svg" alt="Upcoming Events" className="ml-12" width={900} height={300} />
                 <h1 className=" text-[#373333] mr-20 ">
                     <span className="font-bold">Next GBM: </span>
-                    <span> October 20th </span>
-                    <span className="font-bold"> at </span>
-                    <span> 7:00pm </span>
+                    <NextMeeting committee="GBM"/>
                 </h1>
             </div>
             <div className="grid grid-cols-2 ml-28 gap-2">
                 {Meetings.map((meeting) => (
-                    <div className="text-[#373333] text-lg text-left">
+                    <div key={meeting.committee} className="text-[#373333] text-lg text-left">
                         <span className="font-bold"> Next {meeting.name}: </span>
-                        <span className=""> {meeting.date} </span>
-                        <span className="font-bold"> at </span>
-                        <span className=""> {meeting.time} </span>
+                        <NextMeeting committee = {meeting.committee}/>
                     </div>
                 ))}
             </div>
-import NextMeeting from '../utils/meetingDates'
-const Events = () => {
-    return(
-        <div>
-            <NextMeeting committee ="Beauty"/>
-            <NextMeeting committee ="Zine"/>
         </div>
-    );
-};
+    )};
 
 
 export default Events;
