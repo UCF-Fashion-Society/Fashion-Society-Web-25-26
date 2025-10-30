@@ -17,11 +17,11 @@ function NextMeeting({ committee }: NextMeetingProps){
         .catch(err => console.error(err));
     }, []);
 
-    if(!meeting) return <p>TBD</p>;
+    if(!meeting) return <span>TBD</span>;
 
     const date = moment.utc(meeting).format("MMMM Do h:mma");
 
-    return(<p>{date}</p>);
+    return(<span>{date}</span>);
 }
 
 export default NextMeeting;
