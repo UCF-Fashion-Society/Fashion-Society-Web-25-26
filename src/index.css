@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 20rem;
+}
+
+@layer base {
+  :root {
+    --font-Inter: 'Inter', sans-serif;
+  }
+}
+
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4efe7;
+
+}
