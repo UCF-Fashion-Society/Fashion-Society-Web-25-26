@@ -59,7 +59,7 @@ const Shows = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white px-8 py-12">
+        <div className="min-h-screen bg-[#f4efe7] px-8 py-12">
             {/* Header Section */}
             <div className="max-w-7xl mx-auto mb-12">
                 <div className="text-center mb-8">

@@ -6,7 +6,7 @@ export default function Navbar() {
     const isWhiteText = whiteText.includes(location.pathname);
     return(
         <nav className = "absolute justify-center-safe top-0 h-[6vh] w-full z-50">
-            <div className = {`mx-auto text-[8px] sm:text-[14px] md:text-[18px] lg:text-[24px] xl:text-[30px] flex justify-around items-center h-full font-['Inter'] ${isWhiteText ? "text-white" : "text-[#373333]"}`}>
+            <div className = {`mx-auto text-[10px] md:text-[12px] lg:text-[18px] flex justify-around items-center h-full font-['Inter'] ${isWhiteText ? "text-white" : "text-[#373333]"}`}>
                 <NavLink to = "/" className = {({ isActive }) => `
                                                     ${isActive 
                                                     ? "underline" 
