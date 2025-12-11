@@ -4,10 +4,10 @@ import { useState } from 'react';
 const ShowsData = [
     {
         id: 1,
-        title: "Show 1",
+        title: "Dame Punk",
         date: "August 29, 2025",
         images: [
-            { id: 1, url: "https://picsum.photos/id/237/200/300", alt: "Look 1" },
+            { id: 1, url:"/gallery/damePunk1.svg", alt: "Look 1" },
             { id: 2, url: "https://picsum.photos/id/237/200/300", alt: "Look 2" },
             { id: 3, url: "https://picsum.photos/id/237/200/300", alt: "Look 3" },
             { id: 4, url: "https://picsum.photos/id/237/200/300", alt: "Look 4" },
@@ -18,16 +18,37 @@ const ShowsData = [
     },
     {
         id: 2,
-        title: "Show 2",
-        date: "December 11, 2025",
+        title: "The Four Elements",
+        date: "Spring 2024",
         images: [
-            { id: 1, url: "https://picsum.photos/id/237/200/300", alt: "Look 1" },
-            { id: 2, url: "https://picsum.photos/id/237/200/300", alt: "Look 2" },
-            { id: 3, url: "https://picsum.photos/id/237/200/300", alt: "Look 3" },
-            { id: 4, url: "https://picsum.photos/id/237/200/300", alt: "Look 4" },
-            { id: 5, url: "https://picsum.photos/id/237/200/300", alt: "Look 5" },
-            { id: 6, url: "https://picsum.photos/id/237/200/300", alt: "Look 6" }
+            { id: 1, url: "/gallery/4elements/elements1.svg", alt: "Look 1" },
+            { id: 2, url: "/gallery/4elements/elements2.svg", alt: "Look 2" },
+            { id: 3, url: "/gallery/4elements/elements3.svg", alt: "Look 3" },
+            { id: 4, url: "/gallery/4elements/elements4.svg", alt: "Look 4" },
+            { id: 5, url: "/gallery/4elements/elements5.svg", alt: "Look 5" },
+            { id: 6, url: "/gallery/4elements/elements6.svg", alt: "Look 6" },
+            { id: 7, url: "/gallery/4elements/elements7.svg", alt: "Look 7" },
+            { id: 8, url: "/gallery/4elements/elements8.svg", alt: "Look 8" },
+            { id: 9, url: "/gallery/4elements/elements9.svg", alt: "Look 9" },
+            { id: 10, url: "/gallery/4elements/elements10.svg", alt: "Look 10" },
+            { id: 11, url: "/gallery/4elements/elements11.svg", alt: "Look 11" },
+            { id: 12, url: "/gallery/4elements/elements12.svg", alt: "Look 12" },
+            { id: 13, url: "/gallery/4elements/elements13.svg", alt: "Look 13" },
+            { id: 14, url: "/gallery/4elements/elements14.svg", alt: "Look 14" },
+            { id: 15, url: "/gallery/4elements/elements15.svg", alt: "Look 15" },
+            { id: 16, url: "/gallery/4elements/elements16.svg", alt: "Look 16" },
+            { id: 17, url: "/gallery/4elements/elements17.svg", alt: "Look 17" },
+            { id: 18, url: "/gallery/4elements/elements18.svg", alt: "Look 18" },
+            { id: 19, url: "/gallery/4elements/elements19.svg", alt: "Look 19" },
+            { id: 20, url: "/gallery/4elements/elements20.svg", alt: "Look 20" },
+            { id: 21, url: "/gallery/4elements/elements21.svg", alt: "Look 21" },
+            { id: 22, url: "/gallery/4elements/elements22.svg", alt: "Look 22" },
+            { id: 23, url: "/gallery/4elements/elements23.svg", alt: "Look 23" },
+            { id: 24, url: "/gallery/4elements/elements24.svg", alt: "Look 24" },
+            
+
         ]
+        
     },
     {
         id: 3,
