@@ -48,6 +48,7 @@ const Events = () => {
                     <span className="font-bold">Next GBM: </span>
                     <NextMeeting committee="GBM"/>
                 </h1>
+                
             </div>
             <div className="grid grid-cols-2 ml-28 gap-2">
                 {Meetings.map((meeting) => (

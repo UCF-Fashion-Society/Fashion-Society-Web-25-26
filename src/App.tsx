@@ -7,6 +7,7 @@ import Committees from './pages/Committees'
 import Events from './pages/Events'
 import Contact from './pages/Contact'
 import Layout from './Layout'
+import Calendar from './pages/Calendar'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/committees" element={<Committees />} />
             <Route path="/events" element={<Events />} />
             <Route path="/shows" element={<Shows />} />
+            <Route path ="/calendar" element={<Calendar />} />
           </Route>
         </Routes>
       </BrowserRouter>
