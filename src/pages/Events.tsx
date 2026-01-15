@@ -42,21 +42,27 @@ const Meetings = [
 const Events = () => {
     return (
         <div>
-            <div className="grid grid-cols-2 items-center space-x-20">
-                <img src="/UpcomingEvents.svg" alt="Upcoming Events" className="ml-12" width={900} height={300} />
-                <h1 className=" text-[#373333] mr-20 ">
+            <div className="grid md:grid-cols-2 md:mb-10 lg:mb-0 items-center max-md:items-start md:space-x-20">
+                <img src="/UpcomingEvents.svg" alt="Upcoming Events" className="md:ml-12 w-[90vw]" />
+               <h1 className=" font-['Inter'] justify-self-center text-[#373333] text-xl max-md:hidden mr-20 ">
                     <span className="font-bold">Next GBM: </span>
                     <NextMeeting committee="GBM"/>
                 </h1>
             </div>
-            <div className="grid grid-cols-2 ml-28 gap-2">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 ml-6 md:ml-10 lg:ml-28 gap-2">
+                  <h1 className=" font-['Inter'] text-left mt-8 md:hidden mb-2 text-[#373333] text-lg ">
+                    <span className="font-bold">Next GBM: </span>
+                    <NextMeeting committee="GBM"/>
+                </h1>
                 {Meetings.map((meeting) => (
-                    <div key={meeting.committee} className="text-[#373333] text-lg text-left">
+                    <div key={meeting.committee} className="text-[#373333] font-['Inter'] mb-2 text-lg text-left">
                         <span className="font-bold"> Next {meeting.name}: </span>
                         <NextMeeting committee = {meeting.committee}/>
                     </div>
                 ))}
             </div>
+             
         </div>
     )};
 

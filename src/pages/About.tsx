@@ -43,9 +43,9 @@ const About = () => {
           className="w-[80vw] mt-[6vh] justify-self-center mb-[4vh] lg:hidden"
         />
         <br/>
-      <p>Each committee holds separate meeting either weekly or biweekly and we hold General Body Meetings every other Monday.</p>
+      <p>Each committee holds separate meetings either weekly or biweekly and we hold General Body Meetings every other Monday.</p>
       <br/>
-      <p>We also host workshops, portfolio-building opportunities, and industry exposure but also fun events like parties, tailgates, and creative challenges for everyone </p>
+      <p>We also host workshops, portfolio-building opportunities, and industry exposure along with fun events like parties, tailgates, and creative challenges for everyone </p>
       <br/>
        <p>We strive to offer opportunities to work together across committees, whether it’s helping with a shoot, designing a look, or planning a fundraising event.</p>
        <br/>
