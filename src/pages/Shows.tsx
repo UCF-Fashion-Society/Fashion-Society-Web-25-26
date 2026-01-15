@@ -5,15 +5,33 @@ const ShowsData = [
     {
         id: 1,
         title: "Dame Punk",
-        date: "August 29, 2025",
+        date: "Spring 2025",
         images: [
-            { id: 1, url:"/gallery/damePunk1.svg", alt: "Look 1" },
-            { id: 2, url: "https://picsum.photos/id/237/200/300", alt: "Look 2" },
-            { id: 3, url: "https://picsum.photos/id/237/200/300", alt: "Look 3" },
-            { id: 4, url: "https://picsum.photos/id/237/200/300", alt: "Look 4" },
-            { id: 5, url: "https://picsum.photos/id/237/200/300", alt: "Look 5" },
-            { id: 6, url: "https://picsum.photos/id/237/200/300", alt: "Look 6" },
-            { id: 7, url: "https://picsum.photos/id/237/200/300", alt: "Look 7" },
+            { id: 1, url: "/gallery/damePunk/dame1.svg", alt: "Look 1" },
+            { id: 2, url: "/gallery/damePunk/dame2.svg", alt: "Look 2" },
+            { id: 3, url: "/gallery/damePunk/dame3.svg", alt: "Look 3" },
+            { id: 4, url: "/gallery/damePunk/dame4.svg", alt: "Look 4" },
+            { id: 5, url: "/gallery/damePunk/dame5.svg", alt: "Look 5" },
+            { id: 6, url: "/gallery/damePunk/dame6.svg", alt: "Look 6" },
+            { id: 7, url: "/gallery/damePunk/dame7.svg", alt: "Look 7" },
+            { id: 8, url: "/gallery/damePunk/dame8.svg", alt: "Look 8" },
+            { id: 9, url: "/gallery/damePunk/dame9.svg", alt: "Look 9" },
+            { id: 10, url: "/gallery/damePunk/dame10.svg", alt: "Look 10" },
+            { id: 11, url: "/gallery/damePunk/dame11.svg", alt: "Look 11" },
+            { id: 12, url: "/gallery/damePunk/dame12.svg", alt: "Look 12" },
+            { id: 13, url: "/gallery/damePunk/dame13.svg", alt: "Look 13" },
+            { id: 14, url: "/gallery/damePunk/dame14.svg", alt: "Look 14" },
+            { id: 15, url: "/gallery/damePunk/dame15.svg", alt: "Look 15" },
+            { id: 16, url: "/gallery/damePunk/dame16.svg", alt: "Look 16" },
+            { id: 17, url: "/gallery/damePunk/dame17.svg", alt: "Look 17" },
+            { id: 18, url: "/gallery/damePunk/dame18.svg", alt: "Look 18" },
+            { id: 19, url: "/gallery/damePunk/dame19.svg", alt: "Look 19" },
+            { id: 20, url: "/gallery/damePunk/dame20.svg", alt: "Look 20" },
+            { id: 21, url: "/gallery/damePunk/dame21.svg", alt: "Look 21" },
+            { id: 22, url: "/gallery/damePunk/dame22.svg", alt: "Look 22" },
+            { id: 23, url: "/gallery/damePunk/dame23.svg", alt: "Look 23" },
+            { id: 24, url: "/gallery/damePunk/dame24.svg", alt: "Look 24" },
+            { id: 25, url: "/gallery/damePunk/dame25.svg", alt: "Look 25" }
         ]
     },
     {
@@ -50,21 +68,7 @@ const ShowsData = [
         ]
         
     },
-    {
-        id: 3,
-        title: "Show 3",
-        date: "December 25, 2025",
-        images: [
-            { id: 1, url: "https://picsum.photos/id/237/200/300", alt: "Look 1" },
-            { id: 2, url: "https://picsum.photos/id/237/200/300", alt: "Look 2" },
-            { id: 3, url: "https://picsum.photos/id/237/200/300", alt: "Look 3" },
-            { id: 4, url: "https://picsum.photos/id/237/200/300", alt: "Look 4" },
-            { id: 5, url: "https://picsum.photos/id/237/200/300", alt: "Look 5" },
-            { id: 6, url: "https://picsum.photos/id/237/200/300", alt: "Look 6" },
-            { id: 7, url: "https://picsum.photos/id/237/200/300", alt: "Look 7" },
-            { id: 8, url: "https://picsum.photos/id/237/200/300", alt: "Look 8" }
-        ]
-    }
+
 ];
 
 const Shows = () => {
@@ -84,10 +88,10 @@ const Shows = () => {
             {/* Header Section */}
             <div className="max-w-7xl mx-auto mb-12">
                 <div className="text-center mb-8">
-                    <h1 className="text-5xl font-bold text-[#373333] mb-3">
+                    <h1 className="text-5xl font-['Inter'] font-bold text-[#373333] mb-3">
                         {currentShow.title}
                     </h1>
-                    <p className="text-xl text-gray-600">{currentShow.date}</p>
+                    <p className="text-xl font-['Inter'] text-gray-600">{currentShow.date}</p>
                 </div>
 
                 {/* Navigation Indicators */}
