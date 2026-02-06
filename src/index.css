@@ -14,10 +14,10 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  overflow-x: hidden;
 }
 body {
   font-family: 'Inter', sans-serif;
   background: #f4efe7;
+  overflow-x: hidden;
 
 }

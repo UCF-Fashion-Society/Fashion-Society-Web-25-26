@@ -83,7 +83,9 @@ const Shows = () => {
         <div className="min-h-screen bg-[#f4efe7] px-8 py-12">
             {/* Header Section */}
             <div className="max-w-7xl mx-auto mb-12">
+                
                 <div className="text-center mb-8">
+                     
                     <h1 className="text-5xl font-bold text-[#373333] mb-3">
                         {currentShow.title}
                     </h1>
