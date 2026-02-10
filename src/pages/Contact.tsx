@@ -1,5 +1,10 @@
-
+import {useSEO} from "../hooks/useSEO"
 const Contact = () => {
+  useSEO({
+              title: "Contact | UCF Fashion Society",
+              description:
+              "Get in touch with UCF Fashion Society for questions about membership, events, and collaborations.",
+          });
     return(
          <div className="flex flex-col items-start">
            <img

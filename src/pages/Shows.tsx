@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import {useSEO} from "../hooks/useSEO"
 // Placeholder data
 const ShowsData = [
     {
@@ -72,6 +72,11 @@ const ShowsData = [
 ];
 
 const Shows = () => {
+    useSEO({
+                title: "Shows | UCF Fashion Society",
+                description:
+                "Explore UCF Fashion Society’s runway shows featuring student designers, models, and creative teams.",
+            });
     const [currentShowIndex, setCurrentShowIndex] = useState(0);
     const currentShow = ShowsData[currentShowIndex];
 

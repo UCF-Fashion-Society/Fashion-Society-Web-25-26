@@ -1,4 +1,10 @@
+import {useSEO} from "../hooks/useSEO"
 const Committees = () => {
+    useSEO({
+                title: "Committees | UCF Fashion Society",
+                description:
+                "Learn about UCF Fashion Society’s committees and how members collaborate on fashion, events, and creative projects.",
+            });
     return(
         <div className="flex flex-col px-8 text-[#373333] font-['Inter'] text-xs md:text-lg lg:text-xl ">
                 <div className="items-start">

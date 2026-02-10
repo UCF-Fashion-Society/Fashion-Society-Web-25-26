@@ -1,4 +1,5 @@
 import NextMeeting from '../utils/meetingDates'
+import {useSEO} from "../hooks/useSEO"
 
 const Meetings = [
     {
@@ -40,7 +41,13 @@ const Meetings = [
 ]
 
 const Events = () => {
+    useSEO({
+            title: "Events | UCF Fashion Society",
+            description:
+            "Explore upcoming fashion shows, workshops, and networking events hosted by UCF Fashion Society.",
+        });
     return (
+        
         <div>
             <div className="grid md:grid-cols-2 md:mb-10 lg:mb-0 items-center max-md:items-start md:space-x-20">
                 <img src="/UpcomingEvents.svg" alt="Upcoming Events" className="md:ml-12 w-[90vw]" />
@@ -64,6 +71,7 @@ const Events = () => {
             </div>
              
         </div>
+        
     )};
 
 

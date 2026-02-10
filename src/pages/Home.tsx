@@ -1,4 +1,10 @@
+import {useSEO} from "../hooks/useSEO"
 export default function Home() {
+  useSEO({
+              title: "Events | UCF Fashion Society",
+              description:
+              "Explore upcoming fashion shows, workshops, and networking events hosted by UCF Fashion Society.",
+          });
   return (
     <div>
     <div className=" w-screen justify-items-start overflow-x-hidden">

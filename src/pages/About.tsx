@@ -1,4 +1,10 @@
+import {useSEO} from "../hooks/useSEO"
 const About = () => {
+  useSEO({
+              title: "About | UCF Fashion Society",
+              description:
+              "Learn about UCF Fashion Society’s mission, values, and commitment to creativity, inclusion, and student-led fashion.",
+          });
     return(
          
   <main className="w-screen">
