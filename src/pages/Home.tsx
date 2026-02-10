@@ -71,7 +71,7 @@ export default function Home() {
           
           <h1>
               <br/>  <a
-                href = "https://discord.gg/5Ggp7WfW"
+                href = "https://discord.gg/z5RBET7mAf"
                 target = "_blank"
                 rel="noopener noreferrer"
                 className = "underline mr-2 hover:text-[#7d513e]"

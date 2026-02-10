@@ -34,7 +34,7 @@ const Contact = () => {
             <br/>
              <p className="lg:py-5">
               <a
-              href = "https://discord.gg/5Ggp7WfW"
+              href = "https://discord.gg/z5RBET7mAf"
               target = "_blank"
               rel="noopener noreferrer"
               className = "underline"
