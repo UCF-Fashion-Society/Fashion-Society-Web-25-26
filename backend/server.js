@@ -1,14 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import { connectDB } from './config.js';
-import dotenv from 'dotenv';
 import Meeting from './models/meeting.js';
 
-
-
-dotenv.config();
 
 const app = express();
 app.use(cors());

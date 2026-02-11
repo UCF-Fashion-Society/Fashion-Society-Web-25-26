@@ -11,7 +11,7 @@ function NextMeeting({ committee }: NextMeetingProps){
     useEffect(() => {
         if(!committee) return;
 
-        fetch(`https://ucffashionsociety.com:5001/meetings/${committee}`)
+        fetch(`http://ucffashionsociety.com:5001/meetings/${committee}`)
         .then(res => res.json())
         .then(data => setMeeting(data.date))
         .catch(err => console.error(err));
