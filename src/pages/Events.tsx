@@ -12,7 +12,7 @@ const Meetings = [
     },
     {
         name: "Web Design Meeting",
-        committee: "Web",
+        committee: "Web Design",
     },
     {
         name: "Photography Meeting",
@@ -24,7 +24,7 @@ const Meetings = [
     },
     {
         name: "Social Media Meeting",
-        committee: "Social",
+        committee: "Social Media",
     },
     {
         name: "Beauty Meeting",
