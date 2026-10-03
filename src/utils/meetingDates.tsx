@@ -26,12 +26,19 @@ function daysBetween(a: Date, b: Date): number {
 
 // Next meeting date on or after `today`, or null if none is left.
 export function getNextMeetingDate(s: CommitteeSchedule, today: Date): Date | null {
-    if (s.day === null) return null;
+    const from = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+    // One-off dates (GBMs etc.): earliest listed date that hasn't passed.
+    if (s.dates && s.dates.length > 0) {
+        const upcoming = s.dates.map(parseDate).filter(d => d >= from).sort((a, b) => a.getTime() - b.getTime());
+        return upcoming[0] ?? null;
+    }
+
+    if (s.day === null || !s.startWeek || !s.frequency) return null;
 
     const start = parseDate(s.startWeek);
     const end = s.endDate ? parseDate(s.endDate) : null;
     const skip = new Set(s.skip ?? []);
-    const from = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
     // First meeting: the chosen weekday in the start week (weeks start Monday).
     const first = new Date(start);
@@ -54,13 +61,16 @@ export function getNextMeetingDate(s: CommitteeSchedule, today: Date): Date | nu
 }
 
 function formatMeeting(s: CommitteeSchedule, date: Date | null): string {
-    const details = `${s.time} · ${s.location}`;
-    if (!date) {
-        const pattern = s.frequency === "biweekly" ? "Every other week" : "Weekly";
-        return `${pattern} · ${details}`;
+    const details = [s.time, s.location].filter(Boolean);
+    let lead: string;
+    if (date) {
+        lead = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+    } else if (s.frequency) {
+        lead = s.frequency === "biweekly" ? "Every other week" : "Weekly";
+    } else {
+        return "TBD";
     }
-    const day = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-    return `${day} · ${details}`;
+    return [lead, ...details].join(" · ");
 }
 
 function NextMeeting({ committee, today = new Date() }: NextMeetingProps) {
@@ -68,7 +78,8 @@ function NextMeeting({ committee, today = new Date() }: NextMeetingProps) {
     if (!entry) return <span>TBD</span>;
 
     const date = getNextMeetingDate(entry, today);
-    if (entry.day !== null && !date) return <span>TBD</span>; // semester's over
+    const expectsDate = entry.day !== null || (entry.dates?.length ?? 0) > 0;
+    if (expectsDate && !date) return <span>TBD</span>; // all dates have passed
     return <span>{formatMeeting(entry, date)}</span>;
 }
 
