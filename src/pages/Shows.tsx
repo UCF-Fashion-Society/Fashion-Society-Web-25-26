@@ -1,7 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useSEO} from "../hooks/useSEO"
 // Placeholder data
-const ShowsData = [
+type Show = {
+    id: number;
+    title: string;
+    subtitle?: string;
+    date: string;
+    eventDate?: string;
+    eventTimes?: string;
+    quote?: string;
+    description?: string[];
+    ticketUrl?: string;
+    images: { id: number; url: string; alt: string }[];
+};
+
+// Time Bomb: the next show. Put the ticket link in ticketUrl once it's live.
+const TimeBomb: Show = {
+    id: 0,
+    title: "Time Bomb",
+    subtitle: "The Moment Before",
+    date: "Spring 2026",
+    eventDate: "2026-04-19T15:00:00",
+    eventTimes: "April 19, 2026 \u2014 3:00 PM & 6:00 PM",
+    quote: "Every act of creation is first an act of destruction",
+    description: [
+        "Time Bomb aims to tell a story about the cyclical and transformative nature of fashion. Fashion, like a ticking bomb, is always on the edge of transformation; it builds tension over time, and when it explodes, it gives birth to something entirely new.",
+        "The show unfolds in three eras, each representing a stage of this process: construction, collapse, and rebirth. Through periods of deconstruction, chaos, evolution, and reinvention, the theme captures the urgency, erratic energy, and constantly shifting dynamics of fashion. Every design, styling choice, and walk contributes to this narrative, allowing members to create with purpose and emotion.",
+    ],
+    ticketUrl: "", // TODO: add the ticket link
+    images: [],
+};
+
+const ShowsData: Show[] = [
+    TimeBomb,
     {
         id: 1,
         title: "Dame Punk",
@@ -69,6 +100,36 @@ const ShowsData = [
 
 ];
 
+// Counts down to a show. Shows 00s once the date has passed.
+function Countdown({ target }: { target: string }) {
+    const [now, setNow] = useState(Date.now());
+    useEffect(() => {
+        const timer = setInterval(() => setNow(Date.now()), 1000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const diff = Math.max(0, new Date(target).getTime() - now);
+    const units = [
+        { label: "Days", value: Math.floor(diff / 86400000) },
+        { label: "Hours", value: Math.floor((diff % 86400000) / 3600000) },
+        { label: "Minutes", value: Math.floor((diff % 3600000) / 60000) },
+        { label: "Seconds", value: Math.floor((diff % 60000) / 1000) },
+    ];
+
+    return (
+        <div className="flex justify-center gap-4">
+            {units.map((u) => (
+                <div key={u.label} className="text-center">
+                    <div className="w-24 rounded-md bg-[#ebe5da] py-3 text-5xl font-bold text-[#6b4a35]">
+                        {String(u.value).padStart(2, "0")}
+                    </div>
+                    <div className="mt-2 text-xs tracking-[0.2em] text-gray-500 uppercase">{u.label}</div>
+                </div>
+            ))}
+        </div>
+    );
+}
+
 const Shows = () => {
     useSEO({
                 title: "Shows | UCF Fashion Society",
@@ -94,8 +155,43 @@ const Shows = () => {
                     <h1 className="text-5xl font-['Inter'] font-bold text-[#373333] mb-3">
                         {currentShow.title}
                     </h1>
+                    {currentShow.subtitle && (
+                        <p className="text-sm tracking-[0.3em] uppercase text-gray-500 mb-2">{currentShow.subtitle}</p>
+                    )}
                     <p className="text-xl font-['Inter'] text-gray-600">{currentShow.date}</p>
                 </div>
+
+                {/* Show details: countdown, description, tickets */}
+                {currentShow.description && (
+                    <div className="mb-12 text-center">
+                        {currentShow.eventDate && (
+                            <div className="mb-10">
+                                <Countdown target={currentShow.eventDate} />
+                            </div>
+                        )}
+                        {currentShow.quote && (
+                            <p className="italic text-2xl font-serif text-[#373333] mb-10">"{currentShow.quote}"</p>
+                        )}
+                        <div className="max-w-2xl mx-auto space-y-4 font-serif text-lg leading-relaxed text-[#373333] text-left">
+                            {currentShow.description.map((para, i) => (
+                                <p key={i}>{para}</p>
+                            ))}
+                        </div>
+                        {currentShow.ticketUrl && (
+                            <a
+                                href={currentShow.ticketUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block mt-10 border border-[#373333] px-10 py-4 text-sm tracking-[0.2em] uppercase text-[#373333] hover:bg-[#373333] hover:text-[#f4efe7] transition-colors"
+                            >
+                                Buy tickets
+                            </a>
+                        )}
+                        {currentShow.eventTimes && (
+                            <p className="mt-10 text-lg tracking-[0.2em] uppercase text-[#373333]">{currentShow.eventTimes}</p>
+                        )}
+                    </div>
+                )}
 
                 {/* Navigation Indicators */}
                 <div className="flex justify-center items-center gap-2 mb-8">
@@ -138,6 +234,9 @@ const Shows = () => {
                 </button>
 
                 {/* Cascading Grid Gallery */}
+                {currentShow.images.length === 0 && (
+                    <p className="text-center text-gray-500 mb-8">Photos coming soon.</p>
+                )}
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
                     {currentShow.images.map((image, index) => (
                         <div
