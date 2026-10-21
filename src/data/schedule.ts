@@ -13,6 +13,7 @@
 // dates:     one-off meetings (like GBMs) on specific dates, YYYY-MM-DD.
 //            When set, these dates are used instead of the weekly pattern.
 //            Add the next date each time one is announced.
+// note:      text shown instead of a date (e.g. "Coming in spring").
 
 export type Frequency = "weekly" | "biweekly";
 
@@ -26,6 +27,7 @@ export type CommitteeSchedule = {
     skip?: string[];
     endDate?: string;
     dates?: string[];
+    note?: string;
 };
 
 const WEEK_1 = "2026-09-21"; // Week 1 alternating: 9/21 - 9/24
@@ -47,7 +49,8 @@ export const schedule: CommitteeSchedule[] = [
     { committee: "Styling",      day: 2,    time: "7PM",   location: "Location TBD", frequency: "weekly",  startWeek: WEEK_1 },
 
     // One-off dates. Add time/location once they're announced.
-    { committee: "GBM", day: null, dates: ["2026-10-12"] },
+    { committee: "GBM", day: null, dates: ["2026-10-25"] },
 
-    // Zine isn't listed, so it shows TBD until added here.
+    // Zine is not meeting yet.
+    { committee: "Zine", day: null, note: "Coming in spring" },
 ];
