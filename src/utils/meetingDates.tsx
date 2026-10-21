@@ -76,6 +76,7 @@ function formatMeeting(s: CommitteeSchedule, date: Date | null): string {
 function NextMeeting({ committee, today = new Date() }: NextMeetingProps) {
     const entry = schedule.find(s => s.committee === committee);
     if (!entry) return <span>TBD</span>;
+    if (entry.note) return <span>{entry.note}</span>;
 
     const date = getNextMeetingDate(entry, today);
     const expectsDate = entry.day !== null || (entry.dates?.length ?? 0) > 0;
