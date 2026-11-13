@@ -6,6 +6,7 @@ import About from './pages/About'
 import Committees from './pages/Committees'
 import Events from './pages/Events'
 import Contact from './pages/Contact'
+import ComingSoon from './pages/ComingSoon'
 import Layout from './Layout'
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             <Route path="/committees" element={<Committees />} />
             <Route path="/events" element={<Events />} />
             <Route path="/shows" element={<Shows />} />
+            <Route path="/zine" element={<ComingSoon title="Zine" />} />
+            <Route path="/current-show" element={<ComingSoon title="Current Show" />} />
           </Route>
         </Routes>
       </BrowserRouter>

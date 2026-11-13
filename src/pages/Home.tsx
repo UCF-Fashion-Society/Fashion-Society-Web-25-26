@@ -1,4 +1,5 @@
 import {useSEO} from "../hooks/useSEO"
+import CurtainIntro from "../components/CurtainIntro"
 export default function Home() {
   useSEO({
               title: "Events | UCF Fashion Society",
@@ -7,6 +8,7 @@ export default function Home() {
           });
   return (
     <div>
+    <CurtainIntro />
     <div className=" w-screen justify-items-start overflow-x-hidden">
           <div className = "w-full h-[50vh] lg:h-[95vh]   bg-cover bg-center bg-no-repeat bg-[url('/pictures/homePageBackground.JPG')] items-center">
             <img src="/FSTitle.svg" alt="Fashion Society" className="-ml-2 md:-ml-4 grow w-full py-10 max-md:py-15 h-auto"/>
