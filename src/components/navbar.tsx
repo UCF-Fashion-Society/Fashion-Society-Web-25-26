@@ -1,55 +1,71 @@
-import {NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const links = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Zine", to: "/zine" },
+  { label: "Current Show", to: "/current-show" },
+  { label: "Past Shows", to: "/shows" },
+  { label: "Committees", to: "/committees" },
+  { label: "Calendar", to: "/events" },
+  { label: "Contact", to: "/contact" },
+];
 
 export default function Navbar() {
-    const location = useLocation();
-    const whiteText = ["/"];
-    const isWhiteText = whiteText.includes(location.pathname);
-    return(
-        <nav className = "absolute justify-center-safe top-0 h-[6vh] w-full z-50">
-            <div className = {`mx-auto text-[10px] md:text-[12px] lg:text-[18px] flex justify-around items-center h-full font-['Inter'] ${isWhiteText ? "text-white" : "text-[#373333]"}`}>
-                <NavLink to = "/" className = {({ isActive }) => `
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            HOME
-                </NavLink>
+  const [open, setOpen] = useState(false);
 
-                 <NavLink to = "/shows" className = {({ isActive }) => ` 
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            SHOWS
-                </NavLink>
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    `font-['Inter'] text-sm lg:text-base text-white ${
+      isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
+    }`;
 
-                 <NavLink to = "/about" className = {({ isActive }) => `
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            ABOUT
-                </NavLink>
+  return (
+    <nav className="sticky top-0 z-50 w-full bg-black">
+      <div className="flex h-14 items-center justify-between px-5 md:px-10">
+        <NavLink
+          to="/"
+          aria-label="Fashion Society home"
+          className="text-white text-4xl leading-none font-['Monsieur_La_Doulaise']"
+          onClick={() => setOpen(false)}
+        >
+          FS
+        </NavLink>
 
-                 <NavLink to = "/committees" className = {({ isActive }) => ` 
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            COMMITTEES
-                </NavLink>
+        <div className="hidden md:flex items-center gap-5 lg:gap-8">
+          {links.map((l) => (
+            <NavLink key={l.to} to={l.to} end={l.to === "/"} className={linkClass}>
+              {l.label}
+            </NavLink>
+          ))}
+        </div>
 
-                 <NavLink to = "/events" className = {({ isActive }) => ` 
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            EVENTS
-                </NavLink>
+        <button
+          type="button"
+          className="md:hidden text-white text-2xl"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? "✕" : "☰"}
+        </button>
+      </div>
 
-                 <NavLink to = "/contact" className = {({ isActive }) => ` 
-                                                    ${isActive 
-                                                    ? "underline" 
-                                                    : "hover:underline"}`}>
-                            CONTACT
-                </NavLink>
-                </div>
-            
-        </nav>
-    );
+      {open && (
+        <div className="md:hidden flex flex-col items-center gap-4 bg-black pb-6">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={linkClass}
+              onClick={() => setOpen(false)}
+            >
+              {l.label}
+            </NavLink>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
 }

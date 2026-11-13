@@ -11,6 +11,47 @@
 }
 
 
+/* Red curtain intro screen */
+.fs-curtain {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #3a0000 0px,
+      #8f0a0a 18px,
+      #d11414 34px,
+      #8f0a0a 50px,
+      #2a0000 66px
+    ),
+    #5a0000;
+}
+
+.fs-curtain-shade {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 35%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 30%);
+  pointer-events: none;
+}
+
+/* Text appears, holds, then disappears */
+@keyframes fs-curtain-text {
+  0% { opacity: 0; transform: translateY(12px); }
+  25% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+.fs-curtain-text {
+  opacity: 0;
+  animation: fs-curtain-text 5s ease-in-out 0.6s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fs-curtain-text {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
